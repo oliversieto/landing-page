@@ -22,7 +22,7 @@ export type SocialLink = {
 }
 
 export type Image = {
-  alternativeText: string
+  alternativeText?: string
   url: string
 }
 
@@ -39,6 +39,13 @@ export type Author = {
   description: string
   role: string
   socialLinks: SocialLink[]
+}
+
+export type Review = {
+  id: string
+  name: string
+  text: string
+  photo: Image
 }
 
 export type HeaderProps = {
@@ -90,6 +97,11 @@ export type SectionAboutUsProps = {
   authors: Author[]
 }
 
+export type SectionReviewsProps = {
+  title: string
+  reviews: Review[]
+}
+
 export type LandingPageProps = {
   logo: LogoProps
   header: HeaderProps
@@ -100,4 +112,5 @@ export type LandingPageProps = {
   sectionAgenda: SectionAgendaProps
   pricingBox: PricingBoxProps
   sectionAboutUs: SectionAboutUsProps
+  sectionReviews: SectionReviewsProps
 }
