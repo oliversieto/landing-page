@@ -135,6 +135,30 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment jsonSchema on LandingPage {
+    jsonSchema {
+      courseJsonLd {
+        courseName
+        providerName
+        providerUrl
+        description
+      }
+      productJsonLd {
+        productName
+        description
+        brand
+        aggregateRating
+        mpn
+        sku
+        reviews
+        offers
+        images {
+          url
+        }
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
@@ -149,6 +173,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       ...sectionReviews
       ...sectionFaq
       ...footer
+      ...jsonSchema
     }
   }
 `

@@ -54,6 +54,36 @@ export type Question = {
   isExtraQuestion: boolean
 }
 
+export type Offer = {
+  price: string
+  priceCurrency: string
+  priceValidUntil: string
+  url: string
+  availability: string
+  seller: {
+    name: string
+  }
+}
+
+export type JsonReview = {
+  author: {
+    type: string
+    name: string
+  }
+  datePublished: string
+  reviewBody: string
+  name: string
+  reviewRating: {
+    bestRating: string
+    ratingValue: string
+    worstRating: string
+  }
+  publisher: {
+    type: string
+    name: string
+  }
+}
+
 export type HeaderProps = {
   title: string
   description: string
@@ -117,6 +147,29 @@ export type FooterProps = {
   description: string
 }
 
+export type JsonSchemaProps = {
+  courseJsonLd: {
+    courseName: string
+    providerName: string
+    providerUrl: string
+    description: string
+  }
+  productJsonLd: {
+    productName: string
+    description: string
+    brand: string
+    aggregateRating: {
+      ratingValue: string
+      reviewCount: string
+    }
+    mpn: string
+    sku: string
+    reviews: JsonReview[]
+    offers: Offer[]
+    images: Image[]
+  }
+}
+
 export type LandingPageProps = {
   logo: LogoProps
   header: HeaderProps
@@ -130,4 +183,5 @@ export type LandingPageProps = {
   sectionReviews: SectionReviewsProps
   sectionFaq: SectionFaqProps
   footer: FooterProps
+  jsonSchema: JsonSchemaProps
 }
